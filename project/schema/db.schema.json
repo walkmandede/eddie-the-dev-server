@@ -1,0 +1,77 @@
+{
+    "db_name" : "eddie_db",
+    "tables" : [
+        {
+            "name" : "project",
+            "template" : {
+                "id" : 1,
+                "projectName" : "Fary Taxi",
+                "shortDescription" : "",
+                "description" : "",
+                "techStacks" : [
+                    "Flutter",
+                    "Node.js",
+                    "React"
+                ],
+                "responsibilities" : [
+                    "Build the app",
+                    "Maintain the app",
+                    "Deploy the app",
+                    "Project Documentation"
+                ],
+                "links" : [
+                    {
+                        "title" : "Playstore link",
+                        "url" : "https:///www.google.playstore.com/123123123"
+                    }
+                ],
+                "projectLogo" : "",
+                "images" : [
+                    "",
+                    ""
+                ]
+            }
+        },
+        {
+            "name" : "experience",
+            "template" : {
+                "id" : 1,
+                "companyName" : "Xsphere",
+                "role" : "Flutter Developer",
+                "location" : "Yangon, Myanmar",
+                "workType" : "on-site|remote|hybrid",
+                "workTimeType" : "full-time,time-based-part-time,task-based-part-time",
+                "description" : "",
+                "responsibilities" : [
+                    "Build the app",
+                    "Maintain the app",
+                    "Deploy the app",
+                    "Project Documentation"
+                ],
+                "from": "2023-12-12",
+                "to" : null              
+            }
+        },
+        {
+            "name" : "education",
+            "template" : {
+                "id" : 1,
+                "name" : "University of Sunderland",
+                "courseName" : "Bachelor of Computer Science",
+                "from" : "2024-05-01",
+                "to" : "2025-03-03",
+                "grade" : "",
+                "remark" : ""
+            }
+        },
+        {
+            "name" : "contact",
+            "template" : {
+                "id" : 1,
+                "name" : "LinkedIn",
+                "logo" : "",
+                "url" : ""
+            }
+        }
+    ]
+}
