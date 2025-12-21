@@ -35,5 +35,21 @@ app.use(`${apiPrefix}/experience`, experienceRoutes);
 //server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(`🚀 Server running`);
+  startHealthCheck();
 });
+
+
+function startHealthCheck() {
+  const healthCheckUrl = `https://eddie-the-dev-server.onrender.com/api/v1/health`;
+  
+  setInterval(async () => {
+    try {
+      const response = await fetch(healthCheckUrl);
+      const data = await response.json();
+      console.log('Health check:', data.status ? '✓' : '✗', new Date().toISOString());
+    } catch (error) {
+      console.error('Health check failed:', error);
+    }
+  }, 30000); // 60000ms = 1 minute
+}
