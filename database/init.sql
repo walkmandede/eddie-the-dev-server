@@ -1,3 +1,35 @@
+CREATE TABLE IF NOT EXISTS about_me (
+    id SERIAL PRIMARY KEY,
+    images JSONB DEFAULT '{"profile": null, "gallery": []}',
+    full_name VARCHAR(255) NOT NULL,
+    other_name VARCHAR(100),
+    expertises TEXT[] DEFAULT '{}',
+    links JSONB DEFAULT '[]',
+    contact JSONB DEFAULT '{}',
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Insert default data if table is empty
+INSERT INTO about_me (full_name, other_name, expertises, links, contact, images)
+SELECT 
+    'Kyaw Phyoe Han',
+    'Eddie',
+    ARRAY['Flutter Developer', 'Node.js Developer'],
+    '[
+        {"name": "Github", "link": "https://github.com/walkmandede"},
+        {"name": "LinkedIn", "link": "https://www.linkedin.com/in/kyaw-phyoe-han-aba3b9255/"}
+    ]'::jsonb,
+    '{
+        "phone": "+66 627 052 637",
+        "email": "kyawphyoehan2995@gmail.com",
+        "address": "Bangkok, Thailand",
+        "originCountry": "Myanmar",
+        "currentCountry": "Thailand"
+    }'::jsonb,
+    '{"profile": null, "gallery": []}'::jsonb
+WHERE NOT EXISTS (SELECT 1 FROM about_me LIMIT 1);
+
 CREATE TABLE IF NOT EXISTS project (
     id SERIAL PRIMARY KEY,
     project_name VARCHAR(255) NOT NULL,

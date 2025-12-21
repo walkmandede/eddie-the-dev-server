@@ -2,6 +2,39 @@
     "db_name" : "eddie_db",
     "tables" : [
         {
+            "name" : "about_me",
+            "template" : {
+                "id" : 1,
+                "images" : {
+                    "profile" : null,
+                    "gallery" : []
+                },
+                "fullName" : "Kyaw Phyoe Han",
+                "otherName" : "Eddie",
+                "expertises" : [
+                    "Flutter Developer",
+                    "Node.js Developer"
+                ],
+                "links" : [
+                    {
+                        "name" : "Github",
+                        "link" : "https://github.com/walkmandede"
+                    },
+                    {
+                        "name" : "LinkedIn",
+                        "link" : "https://www.linkedin.com/in/kyaw-phyoe-han-aba3b9255/"
+                    }
+                ],
+                "contact" : {
+                    "phone" : "+66 627 052 637",
+                    "email" : "kyawphyoehan2995@gmail.com",
+                    "address" : "Bangkok, Thailand",
+                    "originCountry" : "Myanmar",
+                    "currentCountry" : "Thailand"
+                }
+            }
+        },
+        {
             "name" : "project",
             "template" : {
                 "id" : 1,

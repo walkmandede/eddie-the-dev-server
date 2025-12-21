@@ -30,12 +30,12 @@ async function initDatabase(retries = 10, delay = 3000) {
     try {
 
       await pool.query('SELECT NOW()');
-      console.log('✓ Database connection established');
+      console.log('Database connection established');
       
       const sqlPath = path.join(__dirname, '../../database/init.sql');
       const sql = fs.readFileSync(sqlPath, 'utf8');
       await pool.query(sql);
-      console.log('✓ Database initialized');
+      console.log('Database initialized');
       return;
     } catch (err) {
       console.log(`Database initialization attempt ${i + 1}/${retries} failed. Retrying in ${delay/1000}s...`);

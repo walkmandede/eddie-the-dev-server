@@ -2,16 +2,22 @@ import express from "express";
 import type { Request, Response } from "express";
 import cors from "cors";
 import pool, { initDatabase } from "./config/db.ts";
+
+import aboutMeRoutes from "./routes/aboutMe.route.ts";
+import educationRoutes from "./routes/education.route.ts";
 import experienceRoutes from "./routes/experience.route.ts";
+import projectRoutes from "./routes/project.route.ts";
 
-
+//variables
 const app = express();
 const apiPrefix = process.env.API_VERSION;
+const isProduction = process.env.NODE_ENV === "production";
 
 
 //middlewares
 app.use(cors());
 app.use(express.json());
+
 
 //apis
 app.get(`${apiPrefix}/health`, async (req: Request, res: Response) => {
@@ -29,17 +35,21 @@ app.get(`${apiPrefix}/health`, async (req: Request, res: Response) => {
   }
 });
 
+app.use(`${apiPrefix}/aboutMe`, aboutMeRoutes);
+app.use(`${apiPrefix}/education`, educationRoutes);
 app.use(`${apiPrefix}/experience`, experienceRoutes);
+app.use(`${apiPrefix}/project`, projectRoutes);
 
 
 //server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, async() => {
   try{
-    console.log(`Server initiating`);
     await initDatabase();
+    if(isProduction){
+      startHealthCheck();
+    }
     console.log(`Server running`);
-    startHealthCheck();
   }
   catch(error){
     console.error('Failed to start: ',error);
@@ -56,7 +66,7 @@ function startHealthCheck() {
     try {
       const response = await fetch(healthCheckUrl);
       const data = await response.json();
-      console.log('Health check:', data.status ? '✓' : '✗', new Date().toISOString());
+      console.log('Health check:', data.status ? 'Healthy' : 'Something went wrong!', new Date().toISOString());
     } catch (error) {
       console.error('Health check failed:', error);
     }
