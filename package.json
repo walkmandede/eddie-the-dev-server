@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=production node src/index.ts",
+    "start": "node --experimental-strip-types src/index.ts",
     "dev": "node --watch --env-file=.env --experimental-strip-types src/index.ts",
     "test": "jest",
     "migrate": "sequelize-cli db:migrate"
