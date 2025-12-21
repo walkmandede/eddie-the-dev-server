@@ -1,7 +1,7 @@
 import express from "express";
 import type { Request, Response } from "express";
 import cors from "cors";
-import pool from "./config/db.ts";
+import pool, { initDatabase } from "./config/db.ts";
 import experienceRoutes from "./routes/experience.route.ts";
 
 
@@ -34,7 +34,8 @@ app.use(`${apiPrefix}/experience`, experienceRoutes);
 
 //server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+app.listen(PORT, async() => {
+  await initDatabase();
   console.log(`🚀 Server running`);
   startHealthCheck();
 });
