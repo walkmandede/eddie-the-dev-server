@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import { educationService } from "../services/education.service.ts";
+import { educationService } from "../services/endpointServices/education.service.ts";
 
 export const educationController = {
   create: async (req: Request, res: Response) => {

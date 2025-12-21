@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import { projectService } from "../services/project.service.ts";
+import { projectService } from "../services/endpointServices/project.service.ts";
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';

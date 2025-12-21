@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import { aboutMeService } from "../services/aboutMe.service.ts";
+import { aboutMeService } from "../services/endpointServices/aboutMe.service.ts";
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';

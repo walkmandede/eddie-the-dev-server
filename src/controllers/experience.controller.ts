@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import { experienceService } from "../services/experience.service.ts";
+import { experienceService } from "../services/endpointServices/experience.service.ts";
 
 export const experienceController = {
   create: async (req: Request, res: Response) => {

@@ -1,4 +1,4 @@
-import pool from "../config/db.ts";
+import pool from "../../config/db.ts";
 
 export const educationService = {
   create: async (data: any) => {
