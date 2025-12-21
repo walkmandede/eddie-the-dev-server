@@ -60,5 +60,5 @@ function startHealthCheck() {
     } catch (error) {
       console.error('Health check failed:', error);
     }
-  }, 30000); // 60000ms = 1 minute
+  }, 12*60*1000); // 60000ms = 1 minute
 }
