@@ -29,7 +29,7 @@ pool.on('error', (err: any) => {
 
 async function initDatabase() {
   try {
-    const sqlPath = path.join(__dirname, '../../database/init.sql');
+    const sqlPath = path.join(__dirname, '../../../database/init.sql');
     const sql = fs.readFileSync(sqlPath, 'utf8');
     await pool.query(sql);
     console.log('Database initialized');
