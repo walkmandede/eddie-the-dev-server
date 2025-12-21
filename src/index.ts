@@ -35,9 +35,17 @@ app.use(`${apiPrefix}/experience`, experienceRoutes);
 //server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, async() => {
-  await initDatabase();
-  console.log(`🚀 Server running`);
-  startHealthCheck();
+  try{
+    console.log(`Server initiating`);
+    await initDatabase();
+    console.log(`Server running`);
+    startHealthCheck();
+  }
+  catch(error){
+    console.error('Failed to start: ',error);
+    process.exit(1);
+  }
+
 });
 
 

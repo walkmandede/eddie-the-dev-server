@@ -1,6 +1,3 @@
-\c eddie_db;
-
-
 CREATE TABLE IF NOT EXISTS project (
     id SERIAL PRIMARY KEY,
     project_name VARCHAR(255) NOT NULL,
