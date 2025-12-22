@@ -7,7 +7,6 @@ services:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: ${DB_NAME}
       NODE_ENV: ${NODE_ENV}
-      API_VERSION: ${API_VERSION}
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
@@ -32,6 +31,7 @@ services:
       DATABASE_URL: ${DATABASE_URL}
       PORT: ${PORT}
       NODE_ENV: ${NODE_ENV}
+      API_VERSION: ${API_VERSION}
 
 volumes:
   postgres_data:

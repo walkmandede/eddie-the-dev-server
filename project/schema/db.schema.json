@@ -96,15 +96,6 @@
                 "grade" : "",
                 "remark" : ""
             }
-        },
-        {
-            "name" : "contact",
-            "template" : {
-                "id" : 1,
-                "name" : "LinkedIn",
-                "logo" : "",
-                "url" : ""
-            }
-        }
+        }        
     ]
 }

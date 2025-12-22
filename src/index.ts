@@ -1,6 +1,7 @@
 import express from "express";
 import type { Request, Response } from "express";
 import cors from "cors";
+import { apiLogger } from "./middleware/apiLogger.ts";
 import pool, { initDatabase } from "./config/db.ts";
 
 import aboutMeRoutes from "./routes/aboutMe.route.ts";
@@ -12,11 +13,13 @@ import projectRoutes from "./routes/project.route.ts";
 const app = express();
 const apiPrefix = process.env.API_VERSION;
 const isProduction = process.env.NODE_ENV === "production";
-
+const HOST = process.env.HOST || 'localhost';
+const PORT = process.env.PORT || 3000;
 
 //middlewares
 app.use(cors());
 app.use(express.json());
+app.use(apiLogger);
 
 
 //apis
@@ -42,14 +45,15 @@ app.use(`${apiPrefix}/project`, projectRoutes);
 
 
 //server
-const PORT = process.env.PORT || 3000;
 app.listen(PORT, async() => {
   try{
     await initDatabase();
     if(isProduction){
       startHealthCheck();
-    }
-    console.log(`Server running`);
+    }    
+    const baseUrl = `http://${HOST}:${PORT}`;
+    console.log(`Server running at ${baseUrl}`);
+    console.log(`API running at ${baseUrl}${apiPrefix}`);
   }
   catch(error){
     console.error('Failed to start: ',error);
