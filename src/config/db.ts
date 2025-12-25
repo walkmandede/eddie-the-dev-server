@@ -25,7 +25,7 @@ pool.on('error', (err: any) => {
 });
 
 
-async function initDatabase(retries = 10, delay = 3000) {
+async function initDatabase(retries = 3, delay = 3000) {
   for (let i = 0; i < retries; i++) {
     try {
 

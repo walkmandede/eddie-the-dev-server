@@ -84,6 +84,8 @@ export const aboutMeService = {
       RETURNING *;
     `;
 
+    console.log(data);
+
     const values = [
       data.fullName,
       data.otherName,
@@ -92,6 +94,8 @@ export const aboutMeService = {
       JSON.stringify(data.contact),
       JSON.stringify(data.images)
     ];
+
+    console.log(values);
 
     const { rows } = await pool.query(query, values);
     const result = rows[0];

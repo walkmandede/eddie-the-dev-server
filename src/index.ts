@@ -8,6 +8,7 @@ import aboutMeRoutes from "./routes/aboutMe.route.ts";
 import educationRoutes from "./routes/education.route.ts";
 import experienceRoutes from "./routes/experience.route.ts";
 import projectRoutes from "./routes/project.route.ts";
+import skillRoutes from "./routes/skill.route.ts";
 
 //variables
 const app = express();
@@ -42,6 +43,7 @@ app.use(`${apiPrefix}/aboutMe`, aboutMeRoutes);
 app.use(`${apiPrefix}/education`, educationRoutes);
 app.use(`${apiPrefix}/experience`, experienceRoutes);
 app.use(`${apiPrefix}/project`, projectRoutes);
+app.use(`${apiPrefix}/skill`, skillRoutes);
 
 
 //server

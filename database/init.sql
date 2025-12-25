@@ -16,10 +16,17 @@ SELECT
     'Kyaw Phyoe Han',
     'Eddie',
     ARRAY['Flutter Developer', 'Node.js Developer'],
-    '[
-        {"name": "Github", "link": "https://github.com/walkmandede"},
-        {"name": "LinkedIn", "link": "https://www.linkedin.com/in/kyaw-phyoe-han-aba3b9255/"}
-    ]'::jsonb,
+    '{
+        "linkedIn" : "https://www.linkedin.com/in/kyaw-phyoe-han-aba3b9255",
+        "github" : "https://github.com/walkmandede",
+        "website" : "",
+        "others" : [
+            {
+                "name" : "Facebook",
+                "link" : "https://www.facebook.com/auskic"
+            }
+        ]
+    }'::jsonb,
     '{
         "phone": "+66 627 052 637",
         "email": "kyawphyoehan2995@gmail.com",
@@ -69,10 +76,12 @@ CREATE TABLE IF NOT EXISTS education (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS contact (
+
+
+CREATE TABLE IF NOT EXISTS skill (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    logo TEXT,
-    url TEXT NOT NULL,
+    description VARCHAR(100) NOT NULL,
+    experiences TEXT[] DEFAULT '{}',
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );

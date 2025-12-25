@@ -15,16 +15,17 @@
                     "Flutter Developer",
                     "Node.js Developer"
                 ],
-                "links" : [
-                    {
-                        "name" : "Github",
-                        "link" : "https://github.com/walkmandede"
-                    },
-                    {
-                        "name" : "LinkedIn",
-                        "link" : "https://www.linkedin.com/in/kyaw-phyoe-han-aba3b9255/"
-                    }
-                ],
+                "links" : {
+                    "linkedIn" : "https://www.linkedin.com/in/kyaw-phyoe-han-aba3b9255",
+                    "github" : "https://github.com/walkmandede",
+                    "website" : "",
+                    "others" : [
+                        {
+                            "name" : "Facebook",
+                            "link" : "https://www.facebook.com/auskic"
+                        }
+                    ]
+                },
                 "contact" : {
                     "phone" : "+66 627 052 637",
                     "email" : "kyawphyoehan2995@gmail.com",
